@@ -42,7 +42,9 @@ async def role_play(bot, message):
         )
 
 async def generate_response(input_sentence):
-    prompt = f"You are now a doctor. You should {input_sentence}."
+    prompt = f"""{role_play_text},and i need you be to role played. I need answer for {input_sentence}.If the question is not realated to 
+    {role_play_text}, Reply 'Sorry, I don't know the Answer'
+    """
 
     response = await openai.Completion.create(
         engine=config["engine"],
